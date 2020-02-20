@@ -3,7 +3,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es2017",
+    "target": "es6",
     "outDir": "./dist",
     "baseUrl": "./src"
   },
