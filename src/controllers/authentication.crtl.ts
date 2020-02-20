@@ -1,5 +1,6 @@
 import express, {Request, Response} from 'express';
 import {getInitialAppTokens} from '../services/authentication.service';
+import {setAppTokens} from '../services/storage';
 const router = express.Router();
 const {BASE_URL, APP_ID, app_secret} = process.env;
 
@@ -15,6 +16,7 @@ router.get('/redirect-after-oauth', async (req: Request, res: Response) => {
   console.log(`app instanceId: ${instanceId}`);
   const tokens = await getInitialAppTokens(code, app_secret, APP_ID);
   console.log(`tokens: `, tokens);
+  await setAppTokens(tokens);
   res.redirect('https://www.wix.com/app-oauth-installation/token-received');
 });
 

@@ -1,8 +1,12 @@
 import express, {Request, Response} from 'express';
-import authenticationController from './controllers/authentication.crtl';
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 const app = express();
-app.use('/authentication', authenticationController);
+app.use('/authentication', require('./controllers/authentication.crtl').default);
+app.use('/webhooks', require('./controllers/webhooks.ctrl').default);
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('Server is up');
