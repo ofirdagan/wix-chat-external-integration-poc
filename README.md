@@ -8,8 +8,11 @@ APP_ID=<app_id>
 BASE_URL=<your ngrok url> for example: https://7fe51b63.ngrok.io
 PORT=3000
 DB_URL=a simple key value store end point
-PUBLIC_KEY="the public key from the dev center"
+PUBLIC_KEY="the public key from the dev center, see format below"
 ```
+
+an example for `PUBLIC_KEY` entry:
+`PUBLIC_KEY="-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhpitO4nQIL8mZ1q\nb1kT0YJ...\n-----END PUBLIC KEY-----"
 
 * `npm i`
 * `npm run start:dev`
