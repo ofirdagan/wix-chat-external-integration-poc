@@ -2,10 +2,9 @@
   "name": "external-tpa-that-use-chat-poc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "start:dev": "ts-node ./src/server.ts",
+    "start:dev": "source ./.env && ts-node ./src/server.ts",
     "start": "node ./dist/server"
   },
   "author": "",
