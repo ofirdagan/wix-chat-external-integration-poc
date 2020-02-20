@@ -1,10 +1,9 @@
-import {APP_ID} from '../constants';
 import axios from 'axios';
 
-export const getInitialAppTokens = async (code: string, appSecret: string): Promise<Tokens> => {
+export const getInitialAppTokens = async (code: string, appSecret: string, appId: string): Promise<Tokens> => {
   const tokens = await axios.post('https://www.wix.com/oauth/access', {
     grant_type: 'authorization_code',
-    client_id: APP_ID,
+    client_id: appId,
     client_secret: appSecret,
     code
   }, {
@@ -18,10 +17,10 @@ export const getInitialAppTokens = async (code: string, appSecret: string): Prom
   };
 };
 
-export const getAccessToken = async (refreshToken: string, appSecret: string): Promise<Tokens> => {
+export const getAccessToken = async (refreshToken: string, appSecret: string, appId: string): Promise<Tokens> => {
   const tokens = await axios.post('https://www.wix.com/oauth/access', {
     grant_type: 'refresh_token',
-    client_id: APP_ID,
+    client_id: appId,
     client_secret: appSecret,
     refresh_token: refreshToken
   }, {

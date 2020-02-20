@@ -13,7 +13,7 @@ router.get('/oauth-handshake', (req: Request, res: Response) => {
 router.get('/redirect-after-oauth', async (req: Request, res: Response) => {
   const {code, instanceId} = req.query;
   console.log(`app instanceId: ${instanceId}`);
-  const tokens = await getInitialAppTokens(code, process.env.app_secret);
+  const tokens = await getInitialAppTokens(code, process.env.app_secret, process.env.APP_ID);
   console.log(`tokens: `, tokens);
   res.redirect('https://www.wix.com/app-oauth-installation/token-received');
 });
