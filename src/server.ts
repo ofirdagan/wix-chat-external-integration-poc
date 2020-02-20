@@ -8,7 +8,7 @@ app.get('/', (req: Request, res: Response) => {
   res.status(200).send('Server is up');
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 console.log(`Listening on port: ${port}`);
 app.listen(port);
