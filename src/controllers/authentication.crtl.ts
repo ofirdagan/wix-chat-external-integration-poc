@@ -16,7 +16,7 @@ router.get('/redirect-after-oauth', async (req: Request, res: Response) => {
   console.log(`app instanceId: ${instanceId}`);
   const tokens = await getInitialAppTokens(code, app_secret, APP_ID);
   console.log(`tokens: `, tokens);
-  await setAppTokens(tokens);
+  await setAppTokens(instanceId, tokens);
   res.redirect('https://www.wix.com/app-oauth-installation/token-received');
 });
 
